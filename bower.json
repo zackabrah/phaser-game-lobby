@@ -1,0 +1,22 @@
+{
+  "name": "game-lobby",
+  "description": "A simple multiplayer game lobby built with PhaserJS and Socket.IO",
+  "main": "index.js",
+  "authors": [
+    "Isaac Johnson <hello@isaacjohnsononline.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/isaacjohnsononline/phaser-game-lobby",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "phaser": "~2.4.4"
+  }
+}
