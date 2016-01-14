@@ -1,0 +1,59 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+button {
+    padding: 10px 40px;
+    border-radius: 0px;
+}
+
+#game-container {
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#game-list-options {
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    bottom: 0px;
+    background: #6F6F6F;
+    text-align: center;
+}
+
+#game-list {
+    height: 527px;
+    max-height: 527px;
+    overflow-y: auto;
+}
+
+#game-list table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#game-list table td {
+    padding: 20px;
+    text-align: right;
+}
+
+#game-list table td:first-child {
+    text-align: left;
+}
+
+#game-list table tr:nth-child(odd) {
+    background: #dadada;
+}

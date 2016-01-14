@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>A simple game server lobby</title>
+
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/game.css">
+
+</head>
+
+<body>
+    <div id="game-container">
+        <div id="game-list">
+            <table>
+                <tr>
+                    <td>Game Name</td>
+                    <td>0/10</td>
+                    <td>
+                        <button>Join</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="game-list-options">
+            <button>Create new game</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+    </script>
+</body>
+
+</html>
