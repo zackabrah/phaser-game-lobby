@@ -64,6 +64,10 @@ button {
     text-align: right;
 }
 
+#game-list table tr {
+    background: #f3f3f3;
+}
+
 #game-list table tr:nth-child(odd) {
     background: #dadada;
 }

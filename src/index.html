@@ -13,7 +13,7 @@
 <body>
     <div id="game-container">
         <div id="game-list">
-            <table>
+            <table id="game-list-table">
                 <tr>
                     <th>Game ID</th>
                     <th>Players</th>
@@ -22,13 +22,13 @@
             </table>
         </div>
         <div id="game-list-options">
-            <button>Create new game</button>
+            <button id="btn-host-game">Create new game</button>
         </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-    </script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
 </body>
 
 </html>

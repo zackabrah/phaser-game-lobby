@@ -8,6 +8,8 @@
     "homepage": "https://github.com/isaacjohnsononline/phaser-game-lobby",
     "private": true,
     "dependencies": {
-        "phaser": "~2.4.4"
+        "phaser": "~2.4.4",
+        "jquery": "~2.2.0"
+
     }
 }
