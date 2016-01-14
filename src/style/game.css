@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 *,
@@ -45,13 +46,22 @@ button {
     border-spacing: 0;
 }
 
-#game-list table td {
-    padding: 20px;
-    text-align: right;
+#game-list table th {
+    background: #6f6f6f;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
 }
 
-#game-list table td:first-child {
+#game-list table td,
+#game-list table th {
+    padding: 20px;
     text-align: left;
+}
+
+#game-list table td:last-child,
+#game-list table th:last-child {
+    text-align: right;
 }
 
 #game-list table tr:nth-child(odd) {
