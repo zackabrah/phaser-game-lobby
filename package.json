@@ -3,9 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "description": "A simple multiplayer game lobby built with PhaserJS and Socket.IO",
+  "scripts": {
+    "start": "nodemon src/server/index.js"
+  },
   "dependencies": {
     "express": "^4.13.3",
     "node-uuid": "^1.4.7",
     "socket.io": "^1.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
   }
 }
