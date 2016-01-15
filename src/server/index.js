@@ -11,21 +11,22 @@ var clients = {};
 
 var server = new Server();
 
+
 server.on('connection', function (client) {
-    clients[client.id] = {id: client.id, room: null, isHost: false};
+    clients[client.id] = {id: client.id, room: null, isHost: false, color: '#' + ('00000' + (Math.random() * 16777216 << 0).toString(16)).substr(-6)};
     client.emit('update', rooms);
-    server.sockets.emit('debugMessage', '<p>' + client.id + ' has joined the server');
+    broadcastDebugMsg(client.id + ' has joined the server');
 
 
     client.on('disconnect', function() {
 
         if (clients[client.id].isHost) {
-            var room = findRoomByHostID(client.id, rooms);
+            var room = findRoomByID(client.id, rooms);
             delete rooms[room.id];
             server.sockets.emit('update', rooms);
         }
 
-        server.sockets.emit('debugMessage', '<p>' + client.id + ' has disconnected from the server');
+        broadcastDebugMsg(client.id + ' has disconnected from the server');
         delete clients[client.id];
 
     });
@@ -45,6 +46,15 @@ server.on('connection', function (client) {
         }
     });
 
+    client.on('chatMessage', function(msg) {
+        // find out which room the client is in
+        var room = findRoomByID(client.id, rooms);
+
+        server.sockets.in(room.id).emit('addChatMessage', msg, client.id, clients[client.id].color);
+
+
+    });
+
     function connectClientToRoom(roomID, clientID, isHost) {
         // if the client is already a host, or already connected to a room
         if (clients[clientID].isHost || clients[clientID].room) {
@@ -60,12 +70,11 @@ server.on('connection', function (client) {
 
                 if (isHost) {
                     rooms[roomID] = new Room(roomID, clientID);
-                    server.sockets.emit('debugMessage', '<p>' + clientID + ' has created room: ' + roomID);
-                    server.sockets.emit('debugMessage', '<p>' + JSON.stringify(rooms));
-
+                    broadcastDebugMsg(clientID + ' has created room: ' + roomID);
                 } else {
                     rooms[roomID].addClient(clientID);
-                    server.sockets.emit('debugMessage', '<p>' + clientID + ' has joined room: ' + roomID);
+                    broadcastDebugMsg(client.id + ' has joined room: ' + roomID);
+
                 }
 
                 server.sockets.emit('update', rooms);
@@ -80,13 +89,22 @@ server.on('connection', function (client) {
         return true;
     }
 
-    function findRoomByHostID(hostID, rooms) {
+    function broadcastDebugMsg(msg) {
+        server.sockets.emit('debugMessage', msg);
+    }
+
+    function findRoomByID(clientID, rooms) {
         var key, room;
         for (key in rooms) {
             if (rooms.hasOwnProperty(key)) {
                 room = rooms[key];
-                if (room.hostID === hostID) {
-                    return room;
+                //if (room.hostID === hostID) {
+                //    return room;
+                //}
+                for (var i = 0; i < room.clients.length; i++) {
+                    if (room.clients[i] === clientID) {
+                        return room;
+                    }
                 }
             }
         }

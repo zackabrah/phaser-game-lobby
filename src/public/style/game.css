@@ -82,3 +82,35 @@ button {
     padding: 20px;
     font-size: 12px;
 }
+
+#game {
+    height: 100%;
+    width: 100%;
+    background: black;
+    position: absolute;
+    top: 0;
+    color: white;
+}
+
+#game p {
+    padding: 10px;
+}
+
+#game span {
+    float: right;
+}
+
+#chat-box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: block;
+    background: grey;
+}
+
+#chat-box input {
+    border: none;
+    padding: 10px;
+    margin: 20px;
+    width: 79%;
+}
