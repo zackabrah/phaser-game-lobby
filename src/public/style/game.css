@@ -71,3 +71,14 @@ button {
 #game-list table tr:nth-child(odd) {
     background: #dadada;
 }
+
+#debug {
+    background: black;
+    color: white;
+    font-family: Menlo;
+    width: 800px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 12px;
+}

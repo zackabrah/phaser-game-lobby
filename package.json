@@ -1,10 +1,11 @@
 {
-    "name": "game-lobby",
-    "version": "0.0.1",
-    "private": true,
-    "description": "A simple multiplayer game lobby built with PhaserJS and Socket.IO",
-    "dependencies": {
-        "express": "^4.13.3",
-        "socket.io": "^1.4.4"
-    }
+  "name": "game-lobby",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A simple multiplayer game lobby built with PhaserJS and Socket.IO",
+  "dependencies": {
+    "express": "^4.13.3",
+    "node-uuid": "^1.4.7",
+    "socket.io": "^1.4.4"
+  }
 }
