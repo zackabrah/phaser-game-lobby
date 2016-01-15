@@ -24,7 +24,7 @@
         initGame();
     });
 
-    $('#game-container').on('click', '#btn-chat', function() {
+    $('#game-container').on('submit', 'form', function() {
 
         socket.emit('chatMessage', $('#chat-box-input').val());
 
@@ -39,6 +39,7 @@
 
     socket.on('addChatMessage', function(msg, clientID, color) {
         $('#game').append('<p style="color:' + color + ';">' + clientID + ": " + '<span>' + msg);
+        $('#game')[0].scrollTop = $('#game')[0].scrollHeight;
     });
 
 
@@ -64,9 +65,8 @@
 
     function initGame() {
         $('#game-container').append(
-            '<div id=game>' +
-            '<div id=chat-box><input id="chat-box-input"/><button id="btn-chat">Send</button></div>' +
-            '</div>');
+            '<div id=game></div>' +
+            '<div id=chat-box><form action=""><input autofocus id="chat-box-input" autocomplete="off" /><button>Send</button></form></div>');
     }
 
 
