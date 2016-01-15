@@ -4,7 +4,7 @@
   "private": true,
   "description": "A simple multiplayer game lobby built with PhaserJS and Socket.IO",
   "scripts": {
-    "start": "nodemon src/server/index.js"
+    "start": "node src/server/index.js"
   },
   "dependencies": {
     "express": "^4.13.3",

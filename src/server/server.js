@@ -1,4 +1,6 @@
 // use express to initialize a function handler to be passed to a new node HTTP server
+process.env.PORT = process.env.PORT || 3000;
+
 var Server = function() {
     var express = require('express');
     var app = express();
@@ -14,8 +16,9 @@ var Server = function() {
     });
 
     // listen on port 3000 for user connections
-    http.listen(3000, function () {
-        console.log('listening on *:3000');
+    //app.listen(process.env.PORT);
+    http.listen(process.env.PORT, function () {
+        console.log('listening on *:' + process.env.PORT);
     });
 
     // all we need is the io handle for client sever communication - encapsulate the rest
