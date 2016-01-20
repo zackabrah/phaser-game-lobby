@@ -9,6 +9,8 @@ A simple multiplayer game lobby built with PhaserJS and Socket.IO
 
   `npm install && bower install`
 
-+ Run a local development server with this command:
++ Run a local server with this command:
 
   `npm start`
+  
++ Visit [http://localhost:3000](http://localhost:3000) in your browser
